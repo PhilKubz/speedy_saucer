@@ -40,6 +40,8 @@ Tutorial for this video: [2D Game Development Course](https://www.gamedev.tv/cou
 
 Other Link: [GameDev.tv site with course listings](https://www.gamedev.tv/courses)
 
+Asset Pack: [Kenney.nl](https://kenney.nl/)
+
 ## License
 
 The code and assets provided in the tutorial series belong to their respective creators. The use of these materials is for learning purposes only. 
