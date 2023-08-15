@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://caiockqyeuoq1"]
+
+[ext_resource type="Texture2D" uid="uid://c1nfhdsappd1n" path="res://kenney_space-shooter-redux/Backgrounds/purple.png" id="1_qxiim"]
+[ext_resource type="Script" path="res://level.gd" id="1_u0hj8"]
+[ext_resource type="PackedScene" uid="uid://df8mr25ps00em" path="res://Characters/player.tscn" id="2_o4e0m"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_u0hj8")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -100
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 1155.0
+offset_bottom = 649.0
+texture = ExtResource("1_qxiim")
+stretch_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("2_o4e0m")]
