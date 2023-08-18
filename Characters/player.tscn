@@ -4,14 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://cge2pdwdoc306" path="res://kenney_space-shooter-redux/PNG/ufoGreen.png" id="1_mokhc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_54kqq"]
-radius = 45.0
+radius = 21.6667
 
 [node name="Player" type="RigidBody2D"]
+scale = Vector2(0.6, 0.6)
 gravity_scale = 0.0
 script = ExtResource("1_kb4vj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
 texture = ExtResource("1_mokhc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 4
 shape = SubResource("CircleShape2D_54kqq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.8, 0.8)

@@ -1,20 +1,71 @@
-[gd_scene load_steps=4 format=3 uid="uid://caiockqyeuoq1"]
+[gd_scene load_steps=7 format=3 uid="uid://caiockqyeuoq1"]
 
 [ext_resource type="Texture2D" uid="uid://c1nfhdsappd1n" path="res://kenney_space-shooter-redux/Backgrounds/purple.png" id="1_qxiim"]
 [ext_resource type="Script" path="res://level.gd" id="1_u0hj8"]
 [ext_resource type="PackedScene" uid="uid://df8mr25ps00em" path="res://Characters/player.tscn" id="2_o4e0m"]
+[ext_resource type="PackedScene" uid="uid://b18gyjywd4l5y" path="res://maze.tscn" id="4_tj3bu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_axmth"]
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_5eem7"]
+font_size = 23
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_u0hj8")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Graphics" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Graphics"]
+layer = -10
+
+[node name="Background" type="TextureRect" parent="Graphics/CanvasLayer"]
 z_index = -100
-offset_left = 3.0
-offset_top = 1.0
-offset_right = 1155.0
-offset_bottom = 649.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_qxiim")
 stretch_mode = 1
 
+[node name="StartLabel" type="Label" parent="Graphics"]
+z_index = 1
+offset_left = 150.0
+offset_top = 58.0
+offset_right = 243.0
+offset_bottom = 130.0
+text = "Start"
+label_settings = SubResource("LabelSettings_axmth")
+
+[node name="EndLabel2" type="Label" parent="Graphics"]
+z_index = 1
+offset_left = 761.0
+offset_top = 253.0
+offset_right = 854.0
+offset_bottom = 325.0
+text = "End"
+label_settings = SubResource("LabelSettings_axmth")
+
+[node name="TutorialInfo" type="Label" parent="Graphics"]
+offset_left = -305.0
+offset_top = -96.0
+offset_right = 90.0
+offset_bottom = 149.0
+text = "Tutorial Challenge
+- Use WASD to control the character
+
+-Get to End and stay inbounds
+
+-Don't exit the shape or
+ level will reload at start position
+"
+label_settings = SubResource("LabelSettings_5eem7")
+
 [node name="Player" parent="." instance=ExtResource("2_o4e0m")]
-position = Vector2(289, 219)
+position = Vector2(184, 186)
+
+[node name="Maze" parent="." instance=ExtResource("4_tj3bu")]
+position = Vector2(359, 423)
+
+[connection signal="body_exited" from="Maze" to="." method="_on_maze_body_exited"]
